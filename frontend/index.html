@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkSpace | Stories Worth Sharing</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#" class="logo">Ink<span>Space.</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <div id="authButtons">
+                <button class="btn btn-outline" onclick="openAuth('login')">Log in</button>
+                <button class="btn btn-primary" onclick="openAuth('register')">Get Started</button>
+            </div>
+
+            <div id="userActions" style="display:none;">
+                <span id="welcomeUser"></span>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+                <button class="btn btn-primary" onclick="openBlogEditor()">Write a Blog</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="eyebrow">A SPACE FOR EVERY STORY</span>
+            <h1>Words have the power to <em>inspire.</em></h1>
+            <p>
+                Discover fresh perspectives, share your thoughts,
+                and connect with people through the stories that matter.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#explore" class="btn btn-primary">Explore Stories</a>
+                <button class="btn btn-outline" onclick="openBlogEditor()">Start Writing</button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900"
+                alt="Notebook and writing desk">
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+        <div>
+            <span class="eyebrow">FIND YOUR INTEREST</span>
+            <h2>Ideas for every curious mind.</h2>
+        </div>
+
+        <div class="category-list">
+            <span>Technology</span>
+            <span>Personal Growth</span>
+            <span>Creativity</span>
+            <span>Lifestyle</span>
+            <span>Education</span>
+        </div>
+    </section>
+
+    <!-- BLOG EDITOR -->
+    <section id="blogEditor" class="editor-section" style="display:none;">
+        <div class="section-heading">
+            <span class="eyebrow">YOUR CREATIVE SPACE</span>
+            <h2>Write your story.</h2>
+            <p>Turn your thoughts into something worth sharing.</p>
+        </div>
+
+        <form id="blogForm" class="blog-form">
+            <label for="blogTitle">Blog Title</label>
+            <input
+                type="text"
+                id="blogTitle"
+                placeholder="Give your story a title..."
+                maxlength="255"
+                required>
+
+            <label for="blogContent">Your Story</label>
+            <textarea
+                id="blogContent"
+                rows="9"
+                placeholder="Start writing your thoughts here..."
+                required></textarea>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    Publish Story
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-outline"
+                    onclick="document.getElementById('blogEditor').style.display='none'">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- EXPLORE BLOGS -->
+    <section class="explore-section" id="explore">
+        <div class="section-heading">
+            <span class="eyebrow">THE INKSPACE COMMUNITY</span>
+            <h2>Stories worth your time.</h2>
+            <p>Read ideas, experiences and perspectives shared by writers.</p>
+        </div>
+
+        <div id="blogContainer" class="blog-grid">
+            <p>Loading stories...</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=900"
+                alt="Books and reading">
+        </div>
+
+        <div class="about-content">
+            <span class="eyebrow">ABOUT INKSPACE</span>
+            <h2>Every voice deserves a space.</h2>
+            <p>
+                InkSpace is a place where people can express their ideas,
+                share experiences and discover different perspectives.
+                Whether you love writing or reading, there is a story here for you.
+            </p>
+            <button class="btn btn-primary" onclick="openAuth('register')">
+                Join Our Community
+            </button>
+        </div>
+    </section>
+
+    <!-- AUTHENTICATION MODAL -->
+    <div id="authModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeAuth()">&times;</button>
+
+            <span class="eyebrow">WELCOME TO INKSPACE</span>
+            <h2 id="authTitle">Welcome Back</h2>
+            <p>Join a community built around stories and ideas.</p>
+
+            <form id="authForm">
+                <input type="hidden" id="authMode" value="login">
+
+                <input
+                    type="text"
+                    id="authName"
+                    placeholder="Your name"
+                    style="display:none;"
+                    autocomplete="name">
+
+                <input
+                    type="email"
+                    id="authEmail"
+                    placeholder="Email address"
+                    required
+                    autocomplete="email">
+
+                <input
+                    type="password"
+                    id="authPassword"
+                    placeholder="Password"
+                    required
+                    autocomplete="current-password">
+
+                <button type="submit" id="authSubmit" class="btn btn-primary">
+                    Login
+                </button>
+            </form>
+
+            <p class="switch-auth">
+                Ready to share your story? Create an account using Get Started.
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="#" class="logo">Ink<span>Space.</span></a>
+        <p>A little space for big ideas.</p>
+        <p class="copyright">© 2026 InkSpace. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
